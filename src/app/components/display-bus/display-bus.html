@@ -1,1 +1,32 @@
-<p>display-bus works!</p>
+<div>
+  <h2>Available Buses</h2>
+  <div *ngIf="buses && buses.length > 0; else noBuses">
+    <table border="1">
+      <tr>
+        <th>Bus ID</th>
+        <th>Bus Number</th>
+        <th>Operation Stand</th>
+        <th>Departure City</th>
+        <th>Arrival City</th>
+        <th>Date of Departure</th>
+        <th>Est. Departure Time</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let bus of buses">
+        <td>{{ bus.id }}</td>
+        <td>{{ bus.busNumber }}</td>
+        <td>{{ bus.operationBusStand }}</td>
+        <td>{{ bus.departureCity }}</td>
+        <td>{{ bus.arrivalCity }}</td>
+        <td>{{ bus.dateOfDeparture }}</td>
+        <td>{{ bus.estimateDepartureTime }}</td>
+        <td><button (click)="selectBus(bus.id)">Select</button></td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #noBuses>
+    <p>No buses found for your criteria.</p>
+  </ng-template>
+  <br/>
+  <button (click)="goBack()">Back to Search</button>
+</div>

@@ -1,1 +1,27 @@
-<p>confirm works!</p>
+<div>
+  <h2>Confirm Reservation</h2>
+  <div *ngIf="criteria && passenger; else loading">
+    <h3>Search Criteria:</h3>
+    <p>Departure City: {{ criteria.departureCity }}</p>
+    <p>Arrival City: {{ criteria.arrivalCity }}</p>
+    <p>Date: {{ criteria.dateOfDeparture }}</p>
+    
+    <h3>Passenger Information:</h3>
+    <p>First Name: {{ passenger.firstName }}</p>
+    <p>Last Name: {{ passenger.lastName }}</p>
+    <p>Middle Name: {{ passenger.middleName }}</p>
+    <p>Email: {{ passenger.email }}</p>
+    <p>Phone: {{ passenger.phoneNumber }}</p>
+    <p>Number of Bags: {{ passenger.numberOfBags }}</p>
+    <p>Check In: {{ passenger.checkIn ? 'Yes' : 'No' }}</p>
+    
+    <h3>Bus Information:</h3>
+    <p>Bus ID: {{ busId }}</p>
+    
+    <button (click)="confirmReservation()" style="background-color: green; color: white; padding: 10px; margin-right: 10px;">Confirm Reservation</button>
+    <button (click)="goBack()" style="background-color: red; color: white; padding: 10px;">Cancel</button>
+  </div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</div>

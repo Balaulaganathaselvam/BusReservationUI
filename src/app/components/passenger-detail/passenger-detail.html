@@ -1,1 +1,14 @@
-<p>passenger-detail works!</p>
+<div>
+  <h2>Passenger Details</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label>First Name: <input type="text" [(ngModel)]="passenger.firstName" name="firstName" required/></label><br/>
+    <label>Last Name: <input type="text" [(ngModel)]="passenger.lastName" name="lastName" required/></label><br/>
+    <label>Middle Name: <input type="text" [(ngModel)]="passenger.middleName" name="middleName"/></label><br/>
+    <label>Email: <input type="email" [(ngModel)]="passenger.email" name="email" required/></label><br/>
+    <label>Phone Number: <input type="text" [(ngModel)]="passenger.phoneNumber" name="phoneNumber" required/></label><br/>
+    <label>Number of Bags: <input type="number" [(ngModel)]="passenger.numberOfBags" name="numberOfBags" required/></label><br/>
+    <label>Check In: <input type="checkbox" [(ngModel)]="passenger.checkIn" name="checkIn"/></label><br/>
+    <button type="submit">Continue to Confirm</button>
+  </form>
+  <button (click)="goBack()">Back</button>
+</div>
